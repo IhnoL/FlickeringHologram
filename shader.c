@@ -65,3 +65,90 @@ if(sum0 < zeroEq
 || sum7 < zeroEq) 
     return 0;
 return 1;
+
+
+
+
+float zeroEq = 0.05;
+float threshold = .01f;
+float origSum = orig.r + orig.g +orig.b;
+
+if(origSum < zeroEq)
+    return 0;
+
+float sums[8];
+int i = 0;
+
+sums[i++] = col0.r + col0.g + col0.b;
+sums[i++] = col1.r + col1.g + col1.b;
+sums[i++] = col2.r + col2.g + col2.b;
+sums[i++] = col3.r + col3.g + col3.b;
+sums[i++] = col4.r + col4.g + col4.b;
+sums[i++] = col5.r + col5.g + col5.b;
+sums[i++] = col6.r + col6.g + col6.b;
+sums[i++] = col7.r + col7.g + col7.b;
+
+for (int i=0;i<8;i++){
+    if(abs(origSum - sums[i]) > threshold)
+        return 0;
+}
+return 1;
+
+
+
+
+
+float zeroEq = 0.05;
+float threshold = .01f;
+float origSum = orig.r;
+
+if(orig.b < zeroEq)
+    return 0;
+
+float sums[8];
+int i = 0;
+
+sums[i++] = col0.r;
+sums[i++] = col1.r;
+sums[i++] = col2.r;
+sums[i++] = col3.r;
+sums[i++] = col4.r;
+sums[i++] = col5.r;
+sums[i++] = col6.r;
+sums[i++] = col7.r;
+
+for (int i=0;i<8;i++){
+    if(abs(origSum - sums[i]) > threshold)
+        return 0;
+}
+return 1;
+
+
+
+
+
+
+float zeroEq = 0.05;
+float threshold = .01f;
+float origSum = orig.r;
+
+if(orig.b < zeroEq)
+    return 0;
+
+float sums[8];
+int i = 0;
+
+sums[i++] = col0.b;
+sums[i++] = col1.b;
+sums[i++] = col2.b;
+sums[i++] = col3.b;
+sums[i++] = col4.b;
+sums[i++] = col5.b;
+sums[i++] = col6.b;
+sums[i++] = col7.b;
+
+for (int i=0;i<8;i++){
+    if(sums[i] < zeroEq)
+        return 0;
+}
+return 1;
